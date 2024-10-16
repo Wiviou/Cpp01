@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wkeiser <wkeiser@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 22:31:57 by wkeiser           #+#    #+#             */
-/*   Updated: 2024/10/13 22:31:58 by wkeiser          ###   ########.fr       */
+/*   Created: 2024/10/13 22:30:11 by wkeiser           #+#    #+#             */
+/*   Updated: 2024/10/13 22:30:12 by wkeiser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
-Zombie* newZombie(const std::string& name)
+#include <string>
+
+class Zombie
 {
-    return new (Zombie(name));
-}
+public:
+	Zombie();
+	~Zombie();
+	Zombie(const std::string& name);
+	void setName(const std::string& name);
+	void announce(void) const;
+
+private:
+	std::string name;
+};
+
+Zombie	*newZombie(const std::string& name);
+void	randomChump(const std::string& name);
+Zombie	*zombieHorde(int N, std::string name);
+
+
+#endif

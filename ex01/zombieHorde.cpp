@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wkeiser <wkeiser@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 22:31:57 by wkeiser           #+#    #+#             */
-/*   Updated: 2024/10/13 22:31:58 by wkeiser          ###   ########.fr       */
+/*   Created: 2024/10/16 15:47:02 by wkeiser           #+#    #+#             */
+/*   Updated: 2024/10/16 15:47:03 by wkeiser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie(const std::string& name)
+Zombie* zombieHorde(int N, std::string name)
 {
-    return new (Zombie(name));
+    // Allocate an array for N Zombies
+    Zombie* horde = new Zombie[N];
+
+    // Initialize each Zombie's name
+    for (int i = 0; i < N; ++i)
+    {
+        horde[i].setName(name);
+    }
+    // Return the pointer to the first Zombie
+    return horde;
 }
