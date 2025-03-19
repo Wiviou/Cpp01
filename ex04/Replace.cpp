@@ -29,8 +29,8 @@ bool Replace::_readFile()
 		return (false);
 	}
 	std::stringstream buffer;
-	buffer << ifs.rdbuf();
-	_content = buffer.str();
+	buffer << ifs.rdbuf(); // stock tout le fichier dans un flux
+	_content = buffer.str(); //convertit le flux en string
 	ifs.close();
 	return (true);
 }
@@ -53,7 +53,7 @@ void Replace::_replaceAll()
 bool Replace::_writeFile()
 {
 	std::string outputFilename = _filename + ".replace";
-	std::ofstream ofs(outputFilename.c_str()); //Returns a pointer to a null-terminated character array that contains the same sequence of characters as the string
+	std::ofstream ofs(outputFilename.c_str()); //ouvre nvo fichier en ecriture
 	if (!ofs)
 	{
 		std::cerr << "Error: Cannot create file " << outputFilename << std::endl;
